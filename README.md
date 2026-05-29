@@ -7,7 +7,8 @@ A personal collection of utility scripts for productivity, AI tooling, and file 
 | Script | Language | Description |
 | :--- | :---: | :--- |
 | [GitHubCopilot/count_tokens.py](GitHubCopilot/count_tokens.py) | Python | Parse GitHub Copilot OTel logs and generate a per-session token usage report |
-| [PowerShell/txt-splitter.ps1](PowerShell/txt-splitter.ps1) | PowerShell | Split a large text file into fixed-size chunks by line count |
+| [FileTools/txt-splitter/txt-splitter.py](FileTools/txt-splitter/txt-splitter.py) | Python | Split a large text file into fixed-size chunks by line count |
+| [FileTools/txt-splitter/txt-splitter.ps1](FileTools/txt-splitter/txt-splitter.ps1) | PowerShell | Split a large text file into fixed-size chunks by line count |
 
 ---
 
@@ -27,22 +28,23 @@ See [GitHubCopilot/README.md](GitHubCopilot/README.md) for full setup and usage 
 
 ---
 
-## PowerShell / txt-splitter.ps1
+## FileTools / txt-splitter
 
-Splits a large text file into sequential chunks of a fixed number of lines, writing each chunk to a numbered output file (`part_0.txt`, `part_1.txt`, …).
+Splits a large text file into sequential chunks of a fixed number of lines, writing each chunk to a numbered output file (`part_0.txt`, `part_1.txt`, …). Available in Python and PowerShell.
 
-**Requirements:** PowerShell 5+
+**Quick start (Python):**
 
-**Usage:** Edit the variables at the top of the script, then run it:
+```bash
+python FileTools/txt-splitter/txt-splitter.py /data/big-file.txt
+```
+
+**Quick start (PowerShell):**
 
 ```powershell
-# Set these before running:
-$filePath      = "C:\path\to\your\file.txt"
-$elementsCount = 500000   # lines per chunk
-$iterationsCount = 49     # number of chunks (0-indexed, so 50 total)
-
-.\PowerShell\txt-splitter.ps1
+.\FileTools\txt-splitter\txt-splitter.ps1 -FilePath "C:\data\big-file.txt"
 ```
+
+See [FileTools/txt-splitter/README.md](FileTools/txt-splitter/README.md) for full parameter reference and examples.
 
 ---
 
